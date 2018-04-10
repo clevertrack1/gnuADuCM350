@@ -4,7 +4,7 @@
   <vendor>GitHub</vendor>
   <name>ADuCM350</name>
   <description>ADuCM350 ARM Cortex-M3 Device Family Pack</description>
-  <url>https://clevertrack1.github.io/gnuADuCM350/</url>
+  <url>https://cmsis.pjclarke.com.au/pack/</url>
   <supportContact>support@localhost</supportContact>
   <!-- optional license file -->
   <!-- 
@@ -13,7 +13,7 @@
   -->
   
   <releases>
-    <release version="1.0.0" date="2018-04-09">
+    <release version="1.0.1" date="2018-04-09">
       Initial Version
     </release>
   </releases>
