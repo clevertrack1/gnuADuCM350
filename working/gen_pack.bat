@@ -49,8 +49,6 @@ PUSHD Files
 "C:\Program Files\7-Zip\7z.exe" a %PackName% -tzip
 MOVE %PackName% ..\
 POPD
-MOVE %PackName% "C:\inetpub\wwwroot"
-MOVE %PDSCName% "C:\inetpub\wwwroot"
 GOTO End
 
 :ErrPDSC
