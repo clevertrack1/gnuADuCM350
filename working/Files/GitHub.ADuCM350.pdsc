@@ -55,10 +55,18 @@
   </conditions>
   -->
   
-  <!-- component section (optional for all Software Packs)-->
-  <!--
-  <components>
-  </components>
-  -->
+<components>
+    <component Cclass="MyClass" Cgroup="MyGroup" Csub="MySubGroup" Cversion="1.0.0">
+      <description>MySWComp</description>
+      <files>
+        <file category="doc"    name="Docs/MySWComp.htm"/>
+        <file category="header" name="MySWComp/header_mylib.h"/>
+        <file category="header" name="MySWComp/config/config_mylib.h" attr="config" version="1.0.0"/>
+        <file category="source" name="MySWComp/mylib_one.c"/>
+        <file category="source" name="MySWComp/mylib_two.c"/>
+      </files>
+    </component>
+</components>
+
 
 </package>
