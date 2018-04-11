@@ -4,7 +4,7 @@
   <vendor>GitHub</vendor>
   <name>ADuCM350</name>
   <description>ADuCM350 ARM Cortex-M3 Device Family Pack</description>
-  <url>https://cmsis.pjclarke.com.au/pack/</url>
+  <url>http://cmsis.pjclarke.com.au/pack/</url>
   <supportContact>support@localhost</supportContact>
   <!-- optional license file -->
   <!-- 

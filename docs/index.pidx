@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <index schemaVersion="1.1.0" xs:noNamespaceSchemaLocation="PackIndex.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
 <vendor>GitHub</vendor>
-<url>http://cmsis.pjclarke.com.au/pack</url>
+<url>http://cmsis.pjclarke.com.au/pack/</url>
 <timestamp>2018-04-09T04:05:07.034003+00:00</timestamp>
 <pindex>
-  <pdsc url=http://cmsis.pjclarke.com.au/pack" vendor="GitHub" name="ADuCM350" version="1.0.0" />
+  <pdsc url=http://cmsis.pjclarke.com.au/pack/" vendor="GitHub" name="ADuCM350" version="1.0.1" />
   </pindex>
 </index>
