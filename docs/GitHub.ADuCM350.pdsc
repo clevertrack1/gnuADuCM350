@@ -4,7 +4,7 @@
   <vendor>GitHub</vendor>
   <name>ADuCM350</name>
   <description>ADuCM350 ARM Cortex-M3 Device Family Pack</description>
-  <url>http://cmsis.pjclarke.com.au/pack/</url>
+  <url>https://clevertrack1.github.io/gnuADuCM350/</url>
   <supportContact>support@localhost</supportContact>
   <!-- optional license file -->
   <!-- 
@@ -13,15 +13,17 @@
   -->
   
   <releases>
-    <release version="1.0.1" date="2018-04-09">
-      Initial Version
+    <release version="1.0.2" date="2018-04-17">
+      SVD support
     </release>
   </releases>
 
   <keywords>
     <!-- keywords for indexing -->
-    <keyword>GitHub</keyword>
-    <keyword>ADuCM350</keyword>
+    <keyword>Analog Devices</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Analog Devices</keyword>
+	<keyword>ADuCM350</keyword>
   </keywords>
 
  <devices>
@@ -33,12 +35,14 @@
         <!-- *************************  Device 'ADuCM350110'  ***************************** -->
         <device Dname="ADuCM350">
           <processor  Dclock="16000000"/>
-          <memory     name="FLASH0"      access="rx"     start="0x00000000"  size="0x40000"    startup="1"   />
-          <memory     name="FLASH1"      access="rx"     start="0x00040000"  size="0x20000"    />	
+          <memory     name="IROM0"       access="rx"     start="0x00000000"  size="0x40000"    startup="1"   />
+          <memory     name="IROM1"       access="rx"     start="0x00040000"  size="0x20000"    />	
           <memory     name="IRAM1"       access="rw"     start="0x20000000"  size="0x04000"    />
           <memory     name="IRAM2"       access="rw"     start="0x20040000"  size="0x04000"    />
           <memory     name="EEPROM"      access="r"      start="0x20080000"  size="0x04000"    />	
-		  </device>
+		</device>
+	  <compile    header="Device/Include/ADuCM350.h"/>
+	  <debug      svd="SVD/ADuCM350.svd"/>
     </family>
   </devices>
 
@@ -49,24 +53,41 @@
   </examples>
   -->
   
-  <!-- conditions section (optional for all Software Packs)-->
-  <!--
   <conditions>
+    <condition id="ADuCM350 CMSIS-CORE">
+      <!-- conditions selecting Devices -->
+      <description>Analog Devices ADuCM350 and CMSIS-CORE</description>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+      <require Dvendor="AnalogDevices:1" Dname="ADuCM350"/>
+    </condition>
+    <condition id="Startup ARM">
+      <description>Startup assembler file for ARMCC</description>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="Startup GCC">
+      <description>Startup assembler file for GCC</description>
+      <require Tcompiler="GCC"/>
+    </condition>
+    <condition id="Startup IAR">
+      <description>Startup assembler file for IAR</description>
+      <require Tcompiler="IAR"/>
+    </condition>
   </conditions>
-  -->
   
-<components>
-    <component Cclass="MyClass" Cgroup="MyGroup" Csub="MySubGroup" Cversion="1.0.0">
-      <description>MySWComp</description>
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="ADuCM350 CMSIS-CORE">
+      <description>System Startup for Analog Devices ADuCM350</description>
       <files>
-        <file category="doc"    name="Docs/MySWComp.htm"/>
-        <file category="header" name="MySWComp/header_mylib.h"/>
-        <file category="header" name="MySWComp/config/config_mylib.h" attr="config" version="1.0.0"/>
-        <file category="source" name="MySWComp/mylib_one.c"/>
-        <file category="source" name="MySWComp/mylib_two.c"/>
+        <!--  include folder -->
+        <file category="include" name="Device/Include/"/>
+        <file category="source"  name="Device/Source/ARM/startup_ADuCM350.s" attr="config" condition="Startup ARM" version="1.0.0"/>
+        <file category="source"  name="Device/Source/GCC/startup_ADuCM350.S" attr="config" condition="Startup GCC" version="1.0.0"/>
+        <file category="source"  name="Device/Source/IAR/startup_ADuCM350.s" attr="config" condition="Startup IAR" version="1.0.0"/>
+
+        <file category="source"  name="Device/Source/system_ADuCM350.c"  attr="config" version="1.0.0"/>
       </files>
     </component>
-</components>
+  </components>
 
 
 </package>
